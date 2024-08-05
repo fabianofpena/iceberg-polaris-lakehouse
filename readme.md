@@ -12,6 +12,8 @@ pip install --upgrade pip
 
 pip3 install pylint
 pylint --generate-rcfile > .pylintrc
+pip3 install pre-commit
+pre-commit install
 ```
 
 ```sh
