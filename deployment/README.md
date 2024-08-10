@@ -15,7 +15,7 @@ To install the chart with the release name `polaris`:
 export AWS_ACCESS_KEY_ID=your-access-key-id
 export AWS_SECRET_ACCESS_KEY=your-secret-access-key
 
-helm install polaris ./deployment --set awsAccessKeyId=${AWS_ACCESS_KEY_ID} --set awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY}
+helm install polaris --set awsAccessKeyId=${AWS_ACCESS_KEY_ID} --set awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY}
 ```
 
 ## Uninstalling the Chart
@@ -30,20 +30,23 @@ helm uninstall polaris
 
 The following table lists the configurable parameters of the chart and their default values:
 
-| Parameter                    | Description                               | Default               |
-|------------------------------|-------------------------------------------|-----------------------|
-| `awsAccessKeyId`             | AWS Access Key ID                         | `""`                  |
-| `awsSecretAccessKey`         | AWS Secret Access Key                     | `""`                  |
-| `image.repository`           | Image repository                          | `my-image-repo`       |
-| `image.tag`                  | Image tag                                 | `latest`              |
-| `image.pullPolicy`           | Image pull policy                         | `IfNotPresent`        |
-| `replicaCount`               | Number of replicas                        | `1`                   |
-| `app.name`                   | Name of the application                   | `my-app`              |
-| `app.namespace`              | Kubernetes namespace for the application  | `default`             |
-| `resources.requests.memory`  | Memory resource requests                  | `128Mi`               |
-| `resources.requests.cpu`     | CPU resource requests                     | `250m`                |
-| `resources.limits.memory`    | Memory resource limits                    | `256Mi`               |
-| `resources.limits.cpu`       | CPU resource limits                       | `500m`                |
+| Parameter                    | Description                               | Default                         |
+|------------------------------|-------------------------------------------|---------------------------------|
+| `awsAccessKeyId`             | AWS Access Key ID                         | `""`                            |
+| `awsSecretAccessKey`         | AWS Secret Access Key                     | `""`                            |
+| `awsRegion`                  | AWS Region                                | `"us-east-2"`                   |
+| `image.repository`           | Image repository                          | `fabianofpena/polaris-polaris`  |
+| `image.tag`                  | Image tag                                 | `1.0`                           |
+| `image.pullPolicy`           | Image pull policy                         | `IfNotPresent`                  |
+| `replicaCount`               | Number of replicas                        | `1`                             |
+| `app.name`                   | Name of the application                   | `polaris`                       |
+| `app.namespace`              | Kubernetes namespace for the application  | `metastore`                     |
+| `service.type`               | Kubernetes service type                   | `ClusterIP`                     |
+| `service.ports`              | List of service ports                     | `[{http: 8181, admin: 8182}]`   |
+| `resources.requests.memory`  | Memory resource requests                  | `128Mi`                         |
+| `resources.requests.cpu`     | CPU resource requests                     | `250m`                          |
+| `resources.limits.memory`    | Memory resource limits                    | `256Mi`                         |
+| `resources.limits.cpu`       | CPU resource limits                       | `500m`                          |
 
 ### Summary
 
