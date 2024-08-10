@@ -1,5 +1,6 @@
-awsAccessKeyId: ""
-awsSecretAccessKey: ""
+app:
+  name: polaris
+  namespace: metastore
 
 image:
   repository: fabianofpena/polaris-polaris
@@ -8,9 +9,17 @@ image:
 
 replicaCount: 1
 
-app:
-  name: polaris
-  namespace: metastore
+service:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8181
+      targetPort: 8181
+    - name: admin
+      protocol: TCP
+      port: 8182
+      targetPort: 8182
 
 resources:
   requests:
@@ -19,3 +28,7 @@ resources:
   limits:
     memory: "256Mi"
     cpu: "500m"
+
+awsAccessKeyId: ""
+awsSecretAccessKey: ""
+awsRegion: "us-east-2"

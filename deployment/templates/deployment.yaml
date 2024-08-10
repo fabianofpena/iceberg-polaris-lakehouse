@@ -16,8 +16,12 @@ spec:
       containers:
       - name: {{ .Values.app.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 8181
+        - containerPort: 8182
         env:
+        - name: AWS_REGION
+          value: {{ .Values.awsRegion | quote }}
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
@@ -28,10 +32,9 @@ spec:
             secretKeyRef:
               name: aws-credentials
               key: aws_secret_access_key
-        resources:
-          requests:
-            memory: "{{ .Values.resources.requests.memory }}"
-            cpu: "{{ .Values.resources.requests.cpu }}"
-          limits:
-            memory: "{{ .Values.resources.limits.memory }}"
-            cpu: "{{ .Values.resources.limits.cpu }}"
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8182
+          initialDelaySeconds: 10
+          periodSeconds: 10
