@@ -1,0 +1,39 @@
+services:
+  polaris:
+    build:
+      context: .
+      network: host
+    container_name: polaris
+    ports:
+      - "8181:8181"
+      - "8182"
+    networks:
+      polaris-quickstart:
+    environment:
+      - AWS_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    command: # override the command to specify aws keys as dropwizard config
+      - java
+      - -jar
+      - /app/polaris-service-1.0.0-all.jar
+      - server
+      - polaris-server.yml
+    # Spark
+  spark:
+    platform: linux/x86_64
+    image: alexmerced/spark35notebook:latest
+    ports: 
+      - 8080:8080  # Master Web UI
+      - 7077:7077  # Master Port
+      - 8888:8888  # Notebook
+    environment:
+      - AWS_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    container_name: spark
+    networks:
+      polaris-quickstart:
+
+networks:
+  polaris-quickstart:

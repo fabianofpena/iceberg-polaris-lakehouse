@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  polaris_api:
+    build:
+      context: .
+      dockerfile: polaris_api_client/Dockerfile
+    volumes:
+      - ./polaris_api_client:/home/jovyan/app
+    env_file:
+      - ./polaris_api_client/.env
+
+volumes:
+  polaris_api_client:
