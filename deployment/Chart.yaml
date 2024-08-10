@@ -1,0 +1,6 @@
+apiVersion: v2
+name: polaris-catalog
+description: A Helm chart for deploying my polaris catalog with AWS credentials
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
