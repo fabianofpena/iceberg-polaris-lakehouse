@@ -1,0 +1,21 @@
+awsAccessKeyId: ""
+awsSecretAccessKey: ""
+
+image:
+  repository: fabianofpena/polaris-polaris
+  tag: 1.0
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+app:
+  name: polaris
+  namespace: metastore
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "250m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
