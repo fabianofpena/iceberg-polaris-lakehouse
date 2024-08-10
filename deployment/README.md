@@ -15,7 +15,12 @@ To install the chart with the release name `polaris`:
 export AWS_ACCESS_KEY_ID=your-access-key-id
 export AWS_SECRET_ACCESS_KEY=your-secret-access-key
 
-helm install polaris --set awsAccessKeyId=${AWS_ACCESS_KEY_ID} --set awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY}
+helm upgrade --install \
+      --debug \
+      --wait=false  \
+      --set=awsAccessKeyId=${AWS_ACCESS_KEY_ID}  \
+      --set=awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY} \
+      "polaris" -f values.yaml .
 ```
 
 ## Uninstalling the Chart
