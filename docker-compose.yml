@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  polaris:
+    image: fabianofpena/polaris-polaris:1.0
+    container_name: polaris-service
+    ports:
+      - "8181:8181"
+      - "8182:8182"
+    environment:
+      - AWS_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    command:
+      - java
+      - -jar
+      - /app/polaris-service-1.0.0-all.jar
+      - server
+      - polaris-server.yml
