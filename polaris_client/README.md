@@ -18,15 +18,13 @@ The `polaris_client` directory is organized as follows:
 ```plaintext
 .
 ├── Dockerfile             # Dockerfile for containerizing the Polaris client
-├── architecture           # Architecture-related diagrams and documentation
 ├── core                   # Core domain entities and interfaces
-├── export_scripts.sh      # Shell script for exporting environment variables or other configurations
 ├── infra                  # Infrastructure-related code, including repositories and configurations
 ├── interface              # Interface layer, including CLI argument parsing
 ├── main                   # Main application entry point and controllers
-├── readme.md              # This README file
 ├── run.py                 # Entry point to run the Polaris client
 └── use_cases              # Application use cases
+├── README.md              # This README file
 ```
 
 ## Local environment
