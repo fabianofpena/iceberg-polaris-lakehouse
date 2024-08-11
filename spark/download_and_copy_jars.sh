@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the target directory
-TARGET_DIR="/Users/lucianopena/iceberg_polaris_lakehouse/spark/.venv/lib/python3.9/site-packages/pyspark/jars/"
+TARGET_DIR="/Users/lucianopena/iceberg-polaris-lakehouse/spark/.venv/lib/python3.9/site-packages/pyspark/jars/"
 
 # Download Iceberg Spark Runtime JAR
 echo "Downloading Iceberg Spark Runtime JAR..."
