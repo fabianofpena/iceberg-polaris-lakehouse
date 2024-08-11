@@ -89,3 +89,35 @@ python run.py \
 
 ## Contributing
 Contributions to the Polaris client are welcome! Please fork the repository, make your changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
+## Creating an External Catalog in StarRocks
+
+To integrate StarRocks with Polaris, you can create an external catalog that allows StarRocks to interact with Iceberg tables managed by Polaris. Below are the steps to create this external catalog.
+
+### Step 1: Create the External Catalog
+
+You can create an external catalog in StarRocks using the following SQL command. This command connects to the Polaris service and defines the Iceberg catalog that StarRocks will use.
+
+```sql
+CREATE EXTERNAL CATALOG <your_catalog_role_name>
+PROPERTIES
+(
+    "type" = "iceberg",
+    "iceberg.catalog.type" = "rest",
+    "iceberg.catalog.uri" = "http://polaris.metastore.svc.cluster.local:8181/api/catalog",
+    "iceberg.catalog.credential" = "<client_id>:<client_secret>",
+    "iceberg.catalog.scope" = "PRINCIPAL_ROLE:ALL",
+    "iceberg.catalog.warehouse" = "<your_catalog_role_name>"
+);
+SET catalog polaris_catalog;
+SHOW DATABASES;
+USE bronze;
+SHOW TABLES;
+```
+
+**`type`**: Specifies the catalog type, in this case, iceberg.
+**`iceberg.catalog.type`**: Specifies the type of Iceberg catalog, set to rest for Polaris.
+**`iceberg.catalog.uri`**: The URI of the Polaris Iceberg catalog REST API.
+**`iceberg.catalog.credential`**: The credentials (client ID and client secret) retrieved from the Polaris service logs.
+**`iceberg.catalog.scope`**: The scope for the Iceberg catalog, typically set to PRINCIPAL_ROLE:ALL.
+**`iceberg.catalog.warehouse`**: Specifies the warehouse location in Polaris that corresponds to the catalog.
