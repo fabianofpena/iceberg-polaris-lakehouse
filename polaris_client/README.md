@@ -75,17 +75,17 @@ python run.py \
 ```
 
 ## Arguments
-**`--client_id`**: The unique identifier for the principal making the API request.
-**`--client_secret`**: The secret key associated with the client_id.
-**`--host`**: The base URL of the Polaris API.
-**`--catalog_name`**: The name of the catalog you wish to create or manage.
-**`--s3_location`**: The S3 bucket location where the catalog data will be stored.
-**`--role_arn`**: The ARN of the IAM role with permissions to access the S3 bucket.
-**`--principal_name`**: The name of the principal (user or service) to be created or managed.
-**`--principal_role_name`**: The name of the role to assign to the principal.
-**`--catalog_role_name`**: The name of the role to assign within the catalog.
-**`--role_type`**: Specifies the type of role (admin, reader, etc.) for access control.
 
+- **`--client_id`**: The unique identifier for the principal making the API request.
+- **`--client_secret`**: The secret key associated with the client_id.
+- **`--host`**: The base URL of the Polaris API.
+- **`--catalog_name`**: The name of the catalog you wish to create or manage.
+- **`--s3_location`**: The S3 bucket location where the catalog data will be stored.
+- **`--role_arn`**: The ARN of the IAM role with permissions to access the S3 bucket.
+- **`--principal_name`**: The name of the principal (user or service) to be created or managed.
+- **`--principal_role_name`**: The name of the role to assign to the principal.
+- **`--catalog_role_name`**: The name of the role to assign within the catalog.
+- **`--role_type`**: Specifies the type of role (admin, reader, etc.) for access control.
 
 ## Contributing
 Contributions to the Polaris client are welcome! Please fork the repository, make your changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
@@ -115,9 +115,9 @@ USE bronze;
 SHOW TABLES;
 ```
 
-**`type`**: Specifies the catalog type, in this case, iceberg.
-**`iceberg.catalog.type`**: Specifies the type of Iceberg catalog, set to rest for Polaris.
-**`iceberg.catalog.uri`**: The URI of the Polaris Iceberg catalog REST API.
-**`iceberg.catalog.credential`**: The credentials (client ID and client secret) retrieved from the Polaris service logs.
-**`iceberg.catalog.scope`**: The scope for the Iceberg catalog, typically set to PRINCIPAL_ROLE:ALL.
-**`iceberg.catalog.warehouse`**: Specifies the warehouse location in Polaris that corresponds to the catalog.
+- **`type`**: Specifies the catalog type, in this case, iceberg.
+- **`iceberg.catalog.type`**: Specifies the type of Iceberg catalog, set to rest for Polaris.
+- **`iceberg.catalog.uri`**: The URI of the Polaris Iceberg catalog REST API.
+- **`iceberg.catalog.credential`**: The credentials (client ID and client secret) retrieved from the Polaris service logs.
+- **`iceberg.catalog.scope`**: The scope for the Iceberg catalog, typically set to PRINCIPAL_ROLE:ALL.
+- **`iceberg.catalog.warehouse`**: Specifies the warehouse location in Polaris that corresponds to the catalog.
