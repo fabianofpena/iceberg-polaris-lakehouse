@@ -5,7 +5,6 @@ from polaris.catalog.api_client import Configuration as CatalogApiClientConfigur
 from polaris.management import ApiClient as ManagementApiClient
 from polaris.management import Configuration as ManagementApiClientConfiguration
 
-# Configuração de logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

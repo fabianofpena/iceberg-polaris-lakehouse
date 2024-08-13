@@ -7,7 +7,6 @@ This directory contains the Polaris API client, which is designed to interact wi
 - [Project Structure](#project-structure)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
-- [Docker](#docker)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -17,7 +16,6 @@ The `polaris_client` directory is organized as follows:
 
 ```plaintext
 .
-├── Dockerfile             # Dockerfile for containerizing the Polaris client
 ├── core                   # Core domain entities and interfaces
 ├── infra                  # Infrastructure-related code, including repositories and configurations
 ├── interface              # Interface layer, including CLI argument parsing
@@ -27,7 +25,7 @@ The `polaris_client` directory is organized as follows:
 ├── README.md              # This README file
 ```
 
-## Local environment
+## Setup and Installation
 ```sh
 # Setup virtual environment
 cd polaris/regtests/client/python
@@ -48,10 +46,7 @@ pre-commit install
 
 ## Directory Details
 
-- **`Dockerfile`**: A Dockerfile for containerizing the Polaris client, making it easier to deploy and run in various environments.
-- **`architecture/`**: Contains architecture-related documentation, diagrams, and explanations about the design and structure of the Polaris client.
 - **`core/`**: Contains core domain entities and interfaces, such as the Principal, Catalog, Role, and their related interfaces. This is the heart of the business logic and follows SOLID principles.
-- **`export_scripts`**.sh: Shell script for exporting environment variables or other configurations needed to run the Polaris client.
 - **`infra/`**: Infrastructure-related code, including repositories that implement the interfaces defined in core/. This layer interacts with external systems like Polaris API, AWS S3, and databases.
 - **`interface/`**: Handles user input and output, including command-line interface (CLI) parsing using argparse. This is where the arguments for the client are processed.
 - **`main/`**: The entry point of the application, responsible for orchestrating the use cases and interacting with the infrastructure layer. It includes controllers that manage the flow of data through the application.

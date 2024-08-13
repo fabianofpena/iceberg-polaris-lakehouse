@@ -17,10 +17,12 @@ This repository contains the Polaris project, including various modules and depl
 
 The Polaris project is designed to manage and interact with Polaris catalogs and principals through a robust API client. It provides functionality for creating catalogs, principals, roles, and managing their relationships and permissions in a scalable environment.
 
+> **Note:** For more information about Polaris, you can visit the official Polaris catalog GitHub page [here](https://github.com/polaris-catalog/polaris).
+
 ### Directory Details
 
-- **`deployment/`**: Contains Helm charts and Kubernetes configuration files for deploying the Polaris application. [Read more](deployment/readme.md).
-- **`polaris/`**: Contains the main application entry point and associated modules.
+- **`deployment/`**: Contains Helm charts and Kubernetes configuration files for deploying the Polaris application. [Read more](deployment/README.md).
+- **`polaris/`**: This directory is a cloned version of the official Polaris repository, containing the core components, modules, and application entry point as provided by the [Polaris catalog GitHub page](https://github.com/polaris-catalog/polaris).
 - **`polaris_client/`**: Contains the Polaris API client logic, including entities, interfaces, repositories, and use cases.
 - **`spark/`**: Includes Spark jobs and related configuration files for processing data within the Polaris ecosystem.
 

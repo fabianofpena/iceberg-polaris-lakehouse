@@ -2,7 +2,7 @@ import pyspark
 from pyspark.sql import SparkSession
 
 POLARIS_URI = 'http://localhost:8181/api/catalog'
-POLARIS_CATALOG_NAME = 'worldstrides'
+POLARIS_CATALOG_NAME = 'demo_catalog'
 POLARIS_CREDENTIALS = 'dcde51a83ad6f540:43dc23f154564d628af54bbfc7d9d786'
 POLARIS_SCOPE = 'PRINCIPAL_ROLE:ALL'
 AWS_REGION = 'us-east-1'
